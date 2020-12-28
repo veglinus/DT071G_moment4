@@ -9,20 +9,36 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
+using RazorPagesMovie.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace moment4
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
+            Environment = env;
             Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
+        public IWebHostEnvironment Environment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            if (Environment.IsDevelopment())
+            {
+                services.AddDbContext<RazorPagesMovieContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("RazorPagesMovieContext")));
+            }
+            else
+            {
+                services.AddDbContext<RazorPagesMovieContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("MovieContext")));
+            }
+
             services.AddRazorPages();
         }
 
