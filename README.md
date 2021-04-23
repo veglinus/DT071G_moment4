@@ -9,7 +9,7 @@ Run with CTRL+F5 in Visual Studio Code
 - [x] Scaffolding
 - [x] Work with a database
 - [x] Update the pages
-- [ ] Add search
+- [x] Add search
 - [ ] Add a new field
 - [ ] Add validation
 
