@@ -10,8 +10,8 @@ Run with CTRL+F5 in Visual Studio Code
 - [x] Work with a database
 - [x] Update the pages
 - [x] Add search
-- [ ] Add a new field
-- [ ] Add validation
+- [x] Add a new field
+- [x] Add validation
 
 Other commands needed:
 dotnet dev-certs https --trust
