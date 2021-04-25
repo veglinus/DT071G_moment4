@@ -15,3 +15,6 @@ Run with CTRL+F5 in Visual Studio Code
 
 Other commands needed:
 dotnet dev-certs https --trust
+dotnet ef database drop
+dotnet ef migrations add InitialCreate
+dotnet ef database update
